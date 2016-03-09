@@ -1,4 +1,4 @@
-package wiki.calc;
+package wiki.step2.calc;
 
 import org.apache.hadoop.io.Text;
 

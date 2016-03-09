@@ -2,6 +2,7 @@ package wiki.step1.parseXml;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
+import wiki.Application;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -31,7 +32,7 @@ public class WikiLinksReducer extends Reducer<Text, Text, Text, Text> {
         if (result.length() > 0) {
             result = result.substring(0, result.length() - 1);
         }
-        if (key.toString().equals("William_Shakespeare")) {
+        if (key.toString().equals(Application.SOURCE_PAGE)) {
             result += "|0|GRAY|source";
         } else {
             result += "|Integer.MAX_VALUE|WHITE|null";
