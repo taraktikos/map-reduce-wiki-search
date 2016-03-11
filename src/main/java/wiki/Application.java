@@ -25,8 +25,10 @@ import java.io.IOException;
 
 public class Application extends Configured implements Tool {
 
-    public static String SOURCE_PAGE = "William_Shakespeare";
-    public static String TARGET_PAGE = "Adolf_Hitler";
+//    public static String SOURCE_PAGE = "William_Shakespeare";
+//    public static String TARGET_PAGE = "Adolf_Hitler";
+    public static String SOURCE_PAGE = "Taras_Shevchenko";
+    public static String TARGET_PAGE = "Freddie_Mercury";
 
     private enum MoreIterations {
         numberOfIterations
@@ -56,8 +58,8 @@ public class Application extends Configured implements Tool {
     private boolean runXmlParsing(String inputPath, String outputPath) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
 
-        FileSystem fs = FileSystem.get(conf);
-        fs.delete(new Path(outputPath), true);
+//        FileSystem fs = FileSystem.get(conf);
+//        fs.delete(new Path(outputPath), true);
 
         conf.set(XmlInputFormat.START_TAG_KEY, "<page>");
         conf.set(XmlInputFormat.END_TAG_KEY, "</page>");
@@ -91,9 +93,9 @@ public class Application extends Configured implements Tool {
             job = setupCalculateDistanceJob();
 
             if (iterationCount > 0) {
-                input = output + iterationCount;
+                input = outputPath + iterationCount;
             }
-            output = output + (iterationCount + 1);
+            output = outputPath + (iterationCount + 1);
             FileInputFormat.setInputPaths(job, new Path(input));
             FileOutputFormat.setOutputPath(job, new Path(output));
             job.waitForCompletion(true);
