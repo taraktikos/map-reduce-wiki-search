@@ -40,6 +40,9 @@ public class Application extends Configured implements Tool {
 
     public int run(String[] strings) throws Exception {
         String input = "data/input";
+        if (strings.length > 0) {
+            input = strings[0];
+        }
         String output = "data/" + SOURCE_PAGE;
         boolean isCompleted = runXmlParsing(input, output + "/parsing");
         if (isCompleted) {
