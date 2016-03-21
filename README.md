@@ -6,11 +6,12 @@
 2. William_Shakespeare -> (Grammar schools) Grammar_school  -> (University of York) University_of_York  -> (The Boomtown Rats) The_Boomtown_Rats  -> (A Tonic for the Troops) A_Tonic_for_the_Troops -> (Hitler) Adolf_Hitler
 3. William_Shakespeare -> Hamlet -> (best actor) Academy_Award_for_Best_Actor  -> (A Special Day) A_Special_Day -> (Adolf Hitler) Adolf_Hitler
 4. William_Shakespeare -> (George Steiner) George_Steiner -> (Hitler) Adolf_Hitler
+
 ## Taras_Shevchenko -> Freddie_Mercury
-Taras_Shevchenko -> 2009_in_film -> O_Lucky_Man! -> Brian_Glover -> Now_That's_What_I_Call_Music! -> Now_That's_What_I_Call_Music_10_(UK_series) -> Freddie_Mercury
-Taras_Shevchenko -> Zagreb -> David_Bowie -> The_Jean_Genie -> The_Platinum_Collection_(David_Bowie_album) -> Freddie_Mercury
-Taras_Shevchenko -> 2009_in_film -> Martin_Freeman -> Gavin_Claxton -> Freddie_Mercury
-Taras_Shevchenko -> Dupont_Circle -> HIV/AIDS_in_the_United_States -> Freddie_Mercury
+1. Taras_Shevchenko -> 2009_in_film -> O_Lucky_Man! -> Brian_Glover -> Now_That's_What_I_Call_Music! -> Now_That's_What_I_Call_Music_10_(UK_series) -> Freddie_Mercury
+2. Taras_Shevchenko -> Zagreb -> David_Bowie -> The_Jean_Genie -> The_Platinum_Collection_(David_Bowie_album) -> Freddie_Mercury
+3. Taras_Shevchenko -> 2009_in_film -> Martin_Freeman -> Gavin_Claxton -> Freddie_Mercury
+4. Taras_Shevchenko -> Dupont_Circle -> HIV/AIDS_in_the_United_States -> Freddie_Mercury
 
 
 This map reduce jobs searches shortest path between two wiki page.
