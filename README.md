@@ -1,4 +1,5 @@
 # Search path between wiki page
+Using BFS algorithm and [Iterative MapReduce and Counters](https://hadooptutorial.wikispaces.com/Iterative+MapReduce+and+Counters)
 
 # Example results
 ##William_Shakespeare -> Adolf_Hitler
