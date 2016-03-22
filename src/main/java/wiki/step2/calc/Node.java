@@ -51,7 +51,6 @@ public class Node {
             try {
                 this.distance = parseInt(tokens[1]);
             } catch (NumberFormatException e) {
-//                System.out.println(nodeInfo);
                 throw new NumberFormatException(nodeInfo);
             }
         }

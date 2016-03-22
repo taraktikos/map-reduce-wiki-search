@@ -14,7 +14,7 @@ import org.apache.hadoop.util.ToolRunner;
 import java.io.IOException;
 
 public class Main extends Configured implements Tool {
-    static enum MoreIterations {
+    enum MoreIterations {
         numberOfIterations
     }
 
@@ -63,10 +63,7 @@ public class Main extends Configured implements Tool {
             try {
                 Node inNode = new Node(value.toString());
                 super.map(key, value, context, inNode);
-            } catch (NumberFormatException e) {
-//                System.out.println(value.toString());
             } catch (IllegalArgumentException e) {
-//                System.out.println(value.toString());
             }
         }
     }
@@ -74,15 +71,11 @@ public class Main extends Configured implements Tool {
     public static class Reducer extends SearchReducer {
         @Override
         public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-//            try {
-                Node outNode = new Node();
-                outNode = super.reduce(key, values, context, outNode);
-                if (outNode.getColor() == Node.Color.GRAY) {
-                    context.getCounter(MoreIterations.numberOfIterations).increment(1L);
-                }
-//            } catch (ArrayIndexOutOfBoundsException e) {
-//                System.out.println(e.getMessage());
-//            }
+            Node outNode = new Node();
+            outNode = super.reduce(key, values, context, outNode);
+            if (outNode.getColor() == Node.Color.GRAY) {
+                context.getCounter(MoreIterations.numberOfIterations).increment(1L);
+            }
         }
     }
 }

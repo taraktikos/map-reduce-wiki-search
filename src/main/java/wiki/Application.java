@@ -2,7 +2,6 @@ package wiki;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Counters;
@@ -25,7 +24,7 @@ import java.io.IOException;
 
 public class Application extends Configured implements Tool {
 
-//    public static String SOURCE_PAGE = "William_Shakespeare";
+    //    public static String SOURCE_PAGE = "William_Shakespeare";
 //    public static String TARGET_PAGE = "Adolf_Hitler";
     public static String SOURCE_PAGE = "Taras_Shevchenko";
     public static String TARGET_PAGE = "Freddie_Mercury";
@@ -60,9 +59,6 @@ public class Application extends Configured implements Tool {
 
     private boolean runXmlParsing(String inputPath, String outputPath) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
-
-//        FileSystem fs = FileSystem.get(conf);
-//        fs.delete(new Path(outputPath), true);
 
         conf.set(XmlInputFormat.START_TAG_KEY, "<page>");
         conf.set(XmlInputFormat.END_TAG_KEY, "</page>");
@@ -147,10 +143,7 @@ public class Application extends Configured implements Tool {
             try {
                 Node inNode = new Node(value.toString());
                 super.map(key, value, context, inNode);
-            } catch (NumberFormatException e) {
-//                System.out.println(value.toString());
             } catch (IllegalArgumentException e) {
-//                System.out.println(value.toString());
             }
         }
     }
@@ -158,15 +151,11 @@ public class Application extends Configured implements Tool {
     private static class Reducer extends SearchReducer {
         @Override
         public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-//            try {
             Node outNode = new Node();
             outNode = super.reduce(key, values, context, outNode);
             if (outNode.getColor() == Node.Color.GRAY) {
                 context.getCounter(MoreIterations.numberOfIterations).increment(1L);
             }
-//            } catch (ArrayIndexOutOfBoundsException e) {
-//                System.out.println(e.getMessage());
-//            }
         }
     }
 }

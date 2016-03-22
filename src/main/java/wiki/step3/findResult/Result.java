@@ -49,7 +49,6 @@ public class Result extends Configured implements Tool {
         @Override
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String name = value.toString().split("\t")[0];
-//            String name = key.toString();
             if (name.equals("Adolf_Hitler")) {
                 context.write(new Text(name), value);
             }
